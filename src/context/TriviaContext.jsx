@@ -1,9 +1,20 @@
-import React from "react";
+import { useState, createContext } from "react";
 
-const TriviaContext = () => {
-    return <div>TriviaContext</div>;
+export const TriviaContext = createContext();
+const TriviaContextProvider = () => {
+    const [q, setQ] = useState([]);
+    const getQuestions = async () => {
+        fetch(`https://the-trivia-api.com/v2/questions`)
+            .then(x => x.json())
+            .then(x => setQ(x));
+    };
+    return (
+        <TriviaContext.Provider value={{ q, setQ, getQuestions }}>
+            {props.children}
+        </TriviaContext.Provider>
+    );
 };
 
-export default TriviaContext;
+export default TriviaContextProvider;
 // https://the-trivia-api.com/v2/questions
 // https://the-trivia-api.com/v2/questions/search
