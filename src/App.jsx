@@ -5,6 +5,7 @@ import Error from "./pages/Error";
 import Home from "./pages/Home";
 import Results from "./pages/Results";
 import Game from "./pages/Game";
+import Navbar from "./components/Navbar";
 
 function App() {
     return (
