@@ -5,6 +5,7 @@ const TriviaContextProvider = props => {
     // types=text_choice,image_choice
     const [q, setQ] = useState([]);
     const [cat, setCat] = useState([]);
+    const [done, setDone] = useState(false);
     const [diff, setDiff] = useState([]);
     const [limit, setLimit] = useState(10);
     const url = `https://the-trivia-api.com/v2/questions?limit=${limit}${
@@ -30,7 +31,20 @@ const TriviaContextProvider = props => {
     };
     return (
         <TriviaContext.Provider
-            value={{ q, cat, cats, diff, limit, setCat, setDiff, setQ, getQ, setLimit }}
+            value={{
+                q,
+                cat,
+                cats,
+                diff,
+                limit,
+                done,
+                setCat,
+                setDiff,
+                setQ,
+                getQ,
+                setLimit,
+                setDone,
+            }}
         >
             {props.children}
         </TriviaContext.Provider>

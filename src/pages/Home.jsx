@@ -3,14 +3,14 @@ import { TriviaContext } from "../context/TriviaContext";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-    let { diff, cat, cats, limit, setLimit, setCat, setDiff, setQ } = useContext(TriviaContext);
+    let { diff, cat, cats, limit, setLimit, setCat, setDiff, setDone } = useContext(TriviaContext);
     let [stage, setStage] = useState(0);
     const nav = useNavigate();
     return (
         <div>
-            {stage == 0 ? (
+            {stage === 0 ? (
                 <button onClick={() => setStage(stage + 1)}>Let's Trivia</button>
-            ) : stage == 1 ? (
+            ) : stage === 1 ? (
                 <>
                     <h1>How Many Questions? {limit}</h1>
                     {[5, 10, 15, 20].map(x => (
@@ -20,7 +20,7 @@ const Home = () => {
                     ))}
                     <button onClick={() => setStage(stage + 1)}>NEXT</button>
                 </>
-            ) : stage == 3 ? (
+            ) : stage === 3 ? (
                 <>
                     <h1>Select Your Difficulty</h1>
                     {["easy", "medium", "hard"].map(x => (
@@ -45,7 +45,7 @@ const Home = () => {
                     </button>
                     <button onClick={() => setStage(stage + 1)}>NEXT</button>
                 </>
-            ) : stage == 2 ? (
+            ) : stage === 2 ? (
                 <>
                     <h1>Select Categories</h1>
                     {cats.map(x => (
@@ -69,6 +69,7 @@ const Home = () => {
                     <button
                         onClick={() => {
                             setStage(0);
+                            setDone(true);
                             nav("/game");
                         }}
                     >
