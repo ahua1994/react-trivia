@@ -1,6 +1,8 @@
-import React from "react";
+import { useContext } from "react";
+import { TriviaContext } from "../context/TriviaContext";
 
 const Answer = () => {
+    let { q } = useContext(TriviaContext);
     return <div>Answer</div>;
 };
 
