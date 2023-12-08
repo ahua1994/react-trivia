@@ -6,7 +6,8 @@ import Question from "../components/Question";
 const Game = () => {
     let { q, getQ, done, limit } = useContext(TriviaContext);
     const nav = useNavigate();
-    const [n, setN] = useState(0);
+    const [current, setCurrent] = useState(0);
+    // set current question, block others, dont let same question be answered
     useEffect(() => {
         !done && nav("/");
         getQ();
