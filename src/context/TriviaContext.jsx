@@ -6,6 +6,7 @@ const TriviaContextProvider = props => {
     const [q, setQ] = useState([]);
     const [cat, setCat] = useState([]);
     const [diff, setDiff] = useState([]);
+    const [done, setDone] = useState(false);
     const [limit, setLimit] = useState(10);
     const [current, setCurrent] = useState(null);
     const url = `https://the-trivia-api.com/v2/questions?limit=${limit}${
@@ -36,10 +37,12 @@ const TriviaContextProvider = props => {
                 cat,
                 cats,
                 diff,
+                done,
                 limit,
                 current,
                 setCat,
                 setDiff,
+                setDone,
                 setQ,
                 getQ,
                 setLimit,
