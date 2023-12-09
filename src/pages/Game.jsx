@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import Question from "../components/Question";
 
 const Game = () => {
-    let { q, getQ, done, limit } = useContext(TriviaContext);
+    let { q, getQ, limit, current, setCurrent } = useContext(TriviaContext);
     const nav = useNavigate();
-    const [current, setCurrent] = useState(0);
+    const [done, setDone] = useState([]);
     // set current question, block others, dont let same question be answered
     useEffect(() => {
         !done && nav("/");
@@ -15,7 +15,7 @@ const Game = () => {
     return (
         <div>
             {q.map(x => (
-                <Question x={x} />
+                <Question x={x} done={done} setDone={setDone} />
             ))}
         </div>
     );

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TriviaContext } from "../context/TriviaContext";
 
 const Answer = () => {
-    let { q } = useContext(TriviaContext);
+    let { q, current, setCurrent } = useContext(TriviaContext);
     return <div>Answer</div>;
 };
 
