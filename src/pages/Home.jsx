@@ -3,7 +3,8 @@ import { TriviaContext } from "../context/TriviaContext";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-    let { diff, cat, cats, limit, setLimit, setCat, setDiff, setDone } = useContext(TriviaContext);
+    let { getQ, diff, cat, cats, limit, setLimit, setCat, setDiff, setDone } =
+        useContext(TriviaContext);
     let [stage, setStage] = useState(0);
     const nav = useNavigate();
     return (
@@ -71,6 +72,7 @@ const Home = () => {
                         onClick={() => {
                             setStage(0);
                             setDone(true);
+                            getQ();
                             nav("/game");
                         }}
                     >

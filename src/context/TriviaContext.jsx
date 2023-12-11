@@ -12,7 +12,7 @@ const TriviaContextProvider = props => {
     const url = `https://the-trivia-api.com/v2/questions?limit=${limit}${
         cat.length ? "&categories=" + cat.join(",") : ""
     }${diff.length ? "&difficulties=" + diff.join(",") : ""}`;
-    console.log(url);
+    console.log(q);
     const cats = [
         "music",
         "sport_and_leisure",
@@ -26,6 +26,7 @@ const TriviaContextProvider = props => {
         "general_knowledge",
     ];
     const getQ = async () => {
+        console.log("getting");
         fetch(url)
             .then(x => x.json())
             .then(x => setQ(x));
