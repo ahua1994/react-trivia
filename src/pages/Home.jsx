@@ -13,7 +13,7 @@ const Home = () => {
             ) : stage === 1 ? (
                 <>
                     <h1>How Many Questions? {limit}</h1>
-                    {[5, 10, 15, 20].map(x => (
+                    {[10, 15, 20, 25].map(x => (
                         <button key={x} onClick={() => setLimit(x)}>
                             {x}
                         </button>
@@ -48,6 +48,7 @@ const Home = () => {
             ) : stage === 2 ? (
                 <>
                     <h1>Select Categories</h1>
+                    <h2>{cat.join(", ")}</h2>
                     {cats.map(x => (
                         <button
                             key={x}

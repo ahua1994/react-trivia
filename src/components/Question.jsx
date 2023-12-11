@@ -1,10 +1,11 @@
-const Question = ({ x, answered, setAnswered }) => {
-    console.log(x);
-    const value = d => (d === "easy" ? 50 : d === "medium" ? 100 : 200);
+import { useContext, useState } from "react";
+import { TriviaContext } from "../context/TriviaContext";
+
+const Question = () => {
+    const { current, setCurrent } = useContext(TriviaContext);
     return (
         <button
-            key={x.id}
-            //  disabled={answered.includes(x.id)}
+        //  disabled={answered.includes(x.id)}
         >
             {x.category.replaceAll("_", " ").toUpperCase()} {value(x.difficulty)}
         </button>
