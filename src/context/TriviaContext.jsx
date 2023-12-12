@@ -8,11 +8,13 @@ const TriviaContextProvider = props => {
     const [diff, setDiff] = useState([]);
     const [done, setDone] = useState(false);
     const [limit, setLimit] = useState(10);
+    const [score, setScore] = useState(0);
     const [current, setCurrent] = useState(null);
     const url = `https://the-trivia-api.com/v2/questions?limit=${limit}${
         cat.length ? "&categories=" + cat.join(",") : ""
     }${diff.length ? "&difficulties=" + diff.join(",") : ""}`;
     console.log(q);
+    console.log(current);
     const cats = [
         "music",
         "sport_and_leisure",
@@ -26,7 +28,6 @@ const TriviaContextProvider = props => {
         "general_knowledge",
     ];
     const getQ = async () => {
-        console.log("getting");
         fetch(url)
             .then(x => x.json())
             .then(x => setQ(x));
@@ -40,12 +41,14 @@ const TriviaContextProvider = props => {
                 diff,
                 done,
                 limit,
+                score,
                 current,
                 setCat,
                 setDiff,
                 setDone,
                 setQ,
                 getQ,
+                setScore,
                 setLimit,
                 setCurrent,
             }}

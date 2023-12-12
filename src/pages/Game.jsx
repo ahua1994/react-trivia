@@ -14,7 +14,7 @@ const Game = () => {
     }, []);
     return (
         <div>
-            {!current ? (
+            {!current & (current !== 0) ? (
                 q.map((x, i) => (
                     // <Grid x={x} answered={answered} setAnswered={setAnswered} q={q} current={current} />
                     <Grid key={i} {...{ x, answered, setAnswered, q, current, setCurrent, i }} />
@@ -22,7 +22,7 @@ const Game = () => {
             ) : (
                 <>
                     <h1>{q[current].question.text}</h1>
-                    <Answers {...{ q, current, setCurrent }} />
+                    <Answers {...{ q, current, setCurrent, answered, setAnswered }} />
                 </>
             )}
         </div>
