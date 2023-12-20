@@ -8,15 +8,18 @@ const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
         if (shuffled.includes(index)) continue;
         shuffled.push(index);
     }
-    console.log(answered);
     return (
         <div>
+            {show && <h1>{}</h1>}
             {[q[current].correctAnswer].concat(q[current].incorrectAnswers).map(x => (
                 <button
                     onClick={() => {
                         setAnswered([...answered, q[current].id]);
                         setShow(true);
+                        console.log(x);
+                        console.log(q[current].correctAnswer);
                     }}
+                    // color={x === q[current].correctAnswer ? "green" : "red"}
                     key={x}
                     disabled={show}
                 >
