@@ -19,7 +19,7 @@ const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
                         console.log(x);
                         console.log(q[current].correctAnswer);
                     }}
-                    // color={x === q[current].correctAnswer ? "green" : "red"}
+                    color={"red"}
                     key={x}
                     disabled={show}
                 >
