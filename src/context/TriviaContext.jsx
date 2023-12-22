@@ -13,8 +13,8 @@ const TriviaContextProvider = props => {
     const url = `https://the-trivia-api.com/v2/questions?limit=${limit}${
         cat.length ? "&categories=" + cat.join(",") : ""
     }${diff.length ? "&difficulties=" + diff.join(",") : ""}`;
-    console.log(q);
-    console.log(current);
+    // console.log(q);
+    // console.log(current);
     const cats = [
         "music",
         "sport_and_leisure",
