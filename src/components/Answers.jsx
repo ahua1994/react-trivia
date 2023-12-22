@@ -4,6 +4,7 @@ const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
     const [show, setShow] = useState(false);
     let shuffled = [];
     let questions = [q[current].correctAnswer].concat(q[current].incorrectAnswers);
+    //have it as a state?
     while (shuffled.length !== 4) {
         let index = Math.floor(Math.random() * 4);
         if (shuffled.includes(questions[index])) continue;
