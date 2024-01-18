@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
     const [show, setShow] = useState(false);
     const [shuffled, setShuffled] = useState([]);
-    let arr = [];
+
     useEffect(() => {
+        let arr = [];
         while (arr.length !== 4) {
             let index = Math.floor(Math.random() * 4);
             if (arr.includes(questions[index])) continue;
@@ -14,7 +15,6 @@ const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
     }, []);
 
     let questions = [q[current].correctAnswer].concat(q[current].incorrectAnswers);
-    //have it as a state?
 
     return (
         <div>
