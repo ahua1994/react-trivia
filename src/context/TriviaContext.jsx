@@ -27,8 +27,8 @@ const TriviaContextProvider = props => {
         "food_and_drink",
         "general_knowledge",
     ];
-    const style = { fontSize: "2rem", borderRadius: "10px", padding: "1rem" };
-    <button style={{ color: "", padding: "1rem" }}></button>;
+    const style = { fontSize: "2rem", borderRadius: "10px", padding: "0.6rem" };
+    <button style={{ color: "", padding: "0.6rem" }}></button>;
     const getQ = async () => {
         fetch(url)
             .then(x => x.json())

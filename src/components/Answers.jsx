@@ -32,6 +32,7 @@ const Answers = ({ answered, setAnswered, q, current, setCurrent, style }) => {
                     }}
                     key={x}
                     style={{
+                        ...style,
                         backgroundColor: !show
                             ? "F0F0F0"
                             : x === q[current].correctAnswer
@@ -44,7 +45,9 @@ const Answers = ({ answered, setAnswered, q, current, setCurrent, style }) => {
                 </button>
             ))}
             {show && <h1>{result}</h1>}
-            <button onClick={() => setCurrent(null)}>Return</button>
+            <button style={style} onClick={() => setCurrent(null)}>
+                Return
+            </button>
         </div>
     );
 };
