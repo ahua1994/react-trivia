@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
     const [show, setShow] = useState(false);
-    let shuffled = [];
+    const [shuffled, setShuffled] = useState([]);
+    let arr = [];
+    useEffect(() => {
+        while (arr.length !== 4) {
+            let index = Math.floor(Math.random() * 4);
+            if (arr.includes(questions[index])) continue;
+            arr.push(questions[index]);
+        }
+        setShuffled(arr);
+    }, []);
+
     let questions = [q[current].correctAnswer].concat(q[current].incorrectAnswers);
     //have it as a state?
-    while (shuffled.length !== 4) {
-        let index = Math.floor(Math.random() * 4);
-        if (shuffled.includes(questions[index])) continue;
-        shuffled.push(questions[index]);
-        console.log(shuffled);
-    }
+
     return (
         <div>
             {show && <h1>{}</h1>}
