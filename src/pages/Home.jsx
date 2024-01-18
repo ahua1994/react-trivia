@@ -3,7 +3,7 @@ import { TriviaContext } from "../context/TriviaContext";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-    let { getQ, diff, cat, cats, limit, setLimit, setCat, setDiff, setDone } =
+    let { getQ, diff, cat, cats, limit, setLimit, setCat, setDiff, setDone, style } =
         useContext(TriviaContext);
     let [stage, setStage] = useState(0);
     const nav = useNavigate();

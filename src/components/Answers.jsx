@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
+const Answers = ({ answered, setAnswered, q, current, setCurrent, style }) => {
     const [show, setShow] = useState(false);
+    const [result, setResult] = useState(null);
     const [shuffled, setShuffled] = useState([]);
 
     useEffect(() => {
@@ -18,12 +19,16 @@ const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
 
     return (
         <div>
-            {show && <h1>{}</h1>}
             {shuffled.map(x => (
                 <button
                     onClick={() => {
                         setAnswered([...answered, q[current].id]);
                         setShow(true);
+                        setResult(
+                            x === q[current].correctAnswer
+                                ? "Correct!"
+                                : `Incorrect... The Answer is ${x} `
+                        );
                     }}
                     key={x}
                     style={{
@@ -38,6 +43,7 @@ const Answers = ({ answered, setAnswered, q, current, setCurrent }) => {
                     {x}
                 </button>
             ))}
+            {show && <h1>{result}</h1>}
             <button onClick={() => setCurrent(null)}>Return</button>
         </div>
     );
